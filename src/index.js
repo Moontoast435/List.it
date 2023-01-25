@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import {layout} from './layout/layout';
+import './style.css';
 
  function component() {
    const element = document.createElement('div');
@@ -8,6 +10,7 @@ import _ from 'lodash';
    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
    return element;
+
  }
 
- document.body.appendChild(component());
+ document.body.appendChild(layout());
