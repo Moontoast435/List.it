@@ -1,3 +1,4 @@
+import { add } from 'lodash';
 import './style.css';
 
 function layout() {
@@ -9,11 +10,20 @@ function layout() {
     const defaultProject = document.createElement('button');
     defaultProject.classList = 'project-button';
     defaultProject.textContent = 'Project 1';
-    
-    navBar.appendChild(defaultProject);
 
-    mainContainer.appendChild(navBar);
+    const addProjectButton = document.createElement('button');
+    addProjectButton.classList = 'add-project-button';
+    addProjectButton.textContent = '+';
+
+    navBar.appendChild(defaultProject);
+    navBar.appendChild(addProjectButton);
+
+    const addTodoButton = document.createElement('button');
+    addTodoButton.classList = 'add-todo-button';
+    addTodoButton.textContent = 'Click here to create a new to-do list item';
     
+    mainContainer.appendChild(navBar);
+    mainContainer.appendChild(addTodoButton);
     return mainContainer;
 }
 
