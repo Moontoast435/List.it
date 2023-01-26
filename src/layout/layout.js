@@ -1,5 +1,6 @@
 import { add } from 'lodash';
 import './style.css';
+import { createForm } from '../DOMstuff/createTodoForm';
 
 function layout() {
     const mainContainer = document.createElement('div');
@@ -21,7 +22,8 @@ function layout() {
     const addTodoButton = document.createElement('button');
     addTodoButton.classList = 'add-todo-button';
     addTodoButton.textContent = 'Click here to create a new to-do list item';
-    
+    addTodoButton.addEventListener('click', createForm);
+
     mainContainer.appendChild(navBar);
     mainContainer.appendChild(addTodoButton);
     return mainContainer;

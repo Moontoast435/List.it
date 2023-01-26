@@ -6,6 +6,8 @@ module.exports = {
   entry: {
     index : './src/index.js',
     layout : './src/layout/layout.js',
+    todo : './src/todo/todo.js',
+    todoForm : './src/DOMstuff/createTodoForm.js',
   },
   devServer: {
     static: './dist',

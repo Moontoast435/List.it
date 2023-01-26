@@ -1,0 +1,33 @@
+.modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: 250ms opacity ease-in;
+}
+
+.modal-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-container {
+    background-color: white;
+    height: 15rem;
+    width: 15rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+
+}
+
+.form-container form {
+    line-height: 1.5rem;
+    border-top: 1px solid gray;
+    padding: 1rem 0;
+}
