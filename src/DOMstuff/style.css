@@ -19,7 +19,7 @@
 
 .form-container {
     background-color: white;
-    height: 15rem;
+    height: 27rem;
     width: 15rem;
     padding: 1.5rem;
     border-radius: 10px;
@@ -27,8 +27,39 @@
 }
 
 .form-container form {
+    display: flex;
+    flex-direction: column;
     line-height: 1.5rem;
     border-top: 1px solid gray;
     padding: 1rem 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.radio-labels {
+    margin: 0 0.8em 0 0.8em;
+    padding: 0;
+    width: 15em;
+}
+
+.radio-label {
+    margin: 0 1em 0 1em;
+}
+
+.radio-buttons {
+    margin: 0 0.8em 0 0.8em;
+    width: 20em;
+    
+}
+
+input[type="radio"] {
+    margin:  1em 2.2em;
+}
+
+#create-todo-submit {
+    margin: 1em 6em;
+    width: 5em;
 }
 
