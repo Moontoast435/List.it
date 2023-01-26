@@ -25,7 +25,9 @@ const createForm = () => {
                         <input type="text" name="todo-data-title id="todo-title">
                         <label for="todo-description"> Todo description: </label>
                         <textarea id="todo-description" name="todo-description-data" value="Enter todo details here..." 
-                        rows="5" cols="33"></textarea>
+                        rows="5" 
+                        cols="33">
+                        </textarea>
                         <label> Todo deadline: </label>
                         <input type="date" name="todo-data-deadline" id="todo-date">
                         <p> Todo Priority: </p>

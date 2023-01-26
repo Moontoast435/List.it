@@ -5,7 +5,9 @@ import { todoItem } from './todo/todo';
 
 const drinkWater = todoItem('Drink water','Make sure you drink 3 glasses of water a day', 'Today','High', false);
 
-console.log(drinkWater);
+localStorage.setItem(`${drinkWater}`, JSON.stringify(drinkWater));
+
+console.log(localStorage.getItem(`${drinkWater}`));
 
 
 
