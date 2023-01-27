@@ -1,4 +1,4 @@
-import { saveTodo, getTodo } from '../controllers/localstorage';
+import { saveTodo, getTodo, getAllTodos } from '../controllers/localstorage';
 import './style.css';
 import { todoItem } from '../todo/todo';
 
@@ -74,8 +74,9 @@ const createForm = () => {
                 // Create todo using formData
                 const todo = todoItem(...data.values())
                 saveTodo(todo);
-                
-
+            
+            overlay.remove();
+            refreshTodos();
         });
     })
     } else {
@@ -84,9 +85,29 @@ const createForm = () => {
    
 }
 
+const refreshTodos = () => {
+    const todoList = document.getElementsByClassName('todo-items')[0];
+    todoList.textContent = '';
+    const data = getAllTodos();
+    
+    data.map((t, i) => {
+        console.log(t.todo.title);
+        const todoItem = document.createElement('div');
+        todoItem.id = i;
 
-// const saveHabit = () => {
-//     const 
-// }
+        const todoTitle = document.createElement('h3');
+        todoTitle.textContent = t.todo.title;
+        todoItem.appendChild(todoTitle);
 
-export { createForm };
+        const todoDescription = document.createElement('p');
+        todoDescription.textContent = t.todo.description;
+        todoItem.appendChild(todoDescription);
+
+        
+        todoList.appendChild(todoItem);
+    })
+    
+
+}
+
+export { createForm, refreshTodos };

@@ -26,6 +26,11 @@ function layout() {
 
     mainContainer.appendChild(navBar);
     mainContainer.appendChild(addTodoButton);
+
+    const todoItemContainer = document.createElement('div');
+    todoItemContainer.classList = 'todo-items';
+    mainContainer.appendChild(todoItemContainer);
+    
     return mainContainer;
 }
 
