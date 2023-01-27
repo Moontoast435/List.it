@@ -1,4 +1,4 @@
-// import { todoItem } from '../todo/todo';
+import { saveTodo, getTodo } from '../controllers/localstorage';
 import './style.css';
 import { todoItem } from '../todo/todo';
 
@@ -70,11 +70,12 @@ const createForm = () => {
               
                 // Get the form data from the event object
                 const data = e.formData;
-                for (const value of data.values()) {
-                  console.log(value);
-                }
+
+                // Create todo using formData
                 const todo = todoItem(...data.values())
-                console.log(todo);
+                saveTodo(todo);
+                
+
         });
     })
     } else {
