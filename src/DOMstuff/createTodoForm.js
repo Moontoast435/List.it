@@ -1,4 +1,5 @@
 import './style.css';
+// import { todoItem } from '../todo/todo';
 
 const createForm = () => {
 
@@ -19,7 +20,7 @@ const createForm = () => {
         formContainer.classList = 'form-container';
 
         const form =   `<button id="close-form-button"> X </button>
-                        <form>
+                        <form id="create-todo-form">
                         <h2> Create your todo here!</h2>
                         <label for="todo-title"> Todo title: </label>
                         <input type="text" name="todo-data-title id="todo-title">
@@ -56,15 +57,41 @@ const createForm = () => {
         const closeButton = document.getElementById('close-form-button');
         closeButton.addEventListener('click', toggleFormOff);
 
+        const createdForm = document.getElementById('create-todo-form');
+        
+        createdForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(createdForm);
+            createdForm.addEventListener('formdata', (e) => {
+                console.log('formdata fired');
+              
+                // Get the form data from the event object
+                const data = e.formData;
+                for (const value of data.values()) {
+                  console.log(value);
+                }
+        });
+    })
     } else {
         toggleFormOn();
     }
    
-
-
-
 }
 
+const getFormData = (e, formElem) => {
+    e.preventDefault();
 
+    const formData = new FormData(formElem);
+    console.log(formData);
+}
+// const getFormData = (e) => {
+//     e.preventDefault();
+//       // Get the form data from the event object
+//     const data = e.formData;
+//     for (const value of data.values()) {
+//         console.log(value);
+//     }
+// }
 
-export {createForm };
+export { createForm };

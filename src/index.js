@@ -3,11 +3,11 @@ import './style.css';
 import { todoItem } from './todo/todo';
 
 
-const drinkWater = todoItem('Drink water','Make sure you drink 3 glasses of water a day', 'Today','High', false);
+// const drinkWater = todoItem('Drink water','Make sure you drink 3 glasses of water a day', 'Today','High', false);
 
-localStorage.setItem(`${drinkWater}`, JSON.stringify(drinkWater));
+// localStorage.setItem(`${drinkWater}`, JSON.stringify(drinkWater));
 
-console.log(localStorage.getItem(`${drinkWater}`));
+// console.log(JSON.parse(localStorage.getItem(`${drinkWater}`)));
 
 
 
