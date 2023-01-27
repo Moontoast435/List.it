@@ -1,5 +1,6 @@
-import './style.css';
 // import { todoItem } from '../todo/todo';
+import './style.css';
+import { todoItem } from '../todo/todo';
 
 const createForm = () => {
 
@@ -23,7 +24,7 @@ const createForm = () => {
                         <form id="create-todo-form">
                         <h2> Create your todo here!</h2>
                         <label for="todo-title"> Todo title: </label>
-                        <input type="text" name="todo-data-title id="todo-title">
+                        <input type="text" name="todo-data-title" id="todo-title">
                         <label for="todo-description"> Todo description: </label>
                         <textarea id="todo-description" name="todo-description-data" value="Enter todo details here..." 
                         rows="5" 
@@ -63,6 +64,7 @@ const createForm = () => {
             e.preventDefault();
 
             const formData = new FormData(createdForm);
+            
             createdForm.addEventListener('formdata', (e) => {
                 console.log('formdata fired');
               
@@ -71,6 +73,8 @@ const createForm = () => {
                 for (const value of data.values()) {
                   console.log(value);
                 }
+                const todo = todoItem(...data.values())
+                console.log(todo);
         });
     })
     } else {
@@ -79,19 +83,9 @@ const createForm = () => {
    
 }
 
-const getFormData = (e, formElem) => {
-    e.preventDefault();
 
-    const formData = new FormData(formElem);
-    console.log(formData);
-}
-// const getFormData = (e) => {
-//     e.preventDefault();
-//       // Get the form data from the event object
-//     const data = e.formData;
-//     for (const value of data.values()) {
-//         console.log(value);
-//     }
+// const saveHabit = () => {
+//     const 
 // }
 
 export { createForm };

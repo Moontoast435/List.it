@@ -1,4 +1,5 @@
-const todoItem = (title, description, dueDate, priority, isCompleted) => {
+const todoItem = (title, description, dueDate, priority, isCompleted = false) => {
+        
         // Todo properties
         return { 
             title, 
