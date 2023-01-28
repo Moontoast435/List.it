@@ -1,3 +1,4 @@
+import {createTodo} from '../DOMstuff/createTodo';
 
 const saveTodo = (todo) => {
 
@@ -38,26 +39,15 @@ const getAllTodos = () => {
 
 
 const refreshTodos = () => {
-    const todoList = document.getElementsByClassName('todo-items')[0];
-    todoList.textContent = '';
-    const data = getAllTodos();
-    
-    data.map((t, i) => {
-        console.log(t.todo.title);
-        const todoItem = document.createElement('div');
-        todoItem.id = i;
-
-        const todoTitle = document.createElement('h3');
-        todoTitle.textContent = t.todo.title;
-        todoItem.appendChild(todoTitle);
-
-        const todoDescription = document.createElement('p');
-        todoDescription.textContent = t.todo.description;
-        todoItem.appendChild(todoDescription);
-
+    try {
+        const data = getAllTodos();
         
-        todoList.appendChild(todoItem);
-    })
+        data.map((t, i) => {
+            createTodo(t, i);
+        })
+    } catch (err) {
+        console.error(`Failed to refresh todos. ${err}`)
+    }
     
 }
 const clearTodos = () => {
