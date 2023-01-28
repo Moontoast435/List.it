@@ -1,6 +1,5 @@
 const createTodo = (t, i) => {
     const todoList = document.getElementsByClassName('todo-items')[0];
-    todoList.textContent = '';
     
     const todoItem = document.createElement('div');
     todoItem.id = i;

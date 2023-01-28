@@ -39,9 +39,11 @@ const getAllTodos = () => {
 
 
 const refreshTodos = () => {
+    const todoList = document.getElementsByClassName('todo-items')[0];
+    todoList.textContent = '';
     try {
         const data = getAllTodos();
-        
+
         data.map((t, i) => {
             createTodo(t, i);
         })
