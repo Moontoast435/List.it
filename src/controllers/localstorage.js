@@ -1,4 +1,3 @@
-import { refreshTodos } from "../DOMstuff/createTodoForm";
 
 const saveTodo = (todo) => {
 
@@ -36,6 +35,31 @@ const getAllTodos = () => {
     }
 }
 
+
+
+const refreshTodos = () => {
+    const todoList = document.getElementsByClassName('todo-items')[0];
+    todoList.textContent = '';
+    const data = getAllTodos();
+    
+    data.map((t, i) => {
+        console.log(t.todo.title);
+        const todoItem = document.createElement('div');
+        todoItem.id = i;
+
+        const todoTitle = document.createElement('h3');
+        todoTitle.textContent = t.todo.title;
+        todoItem.appendChild(todoTitle);
+
+        const todoDescription = document.createElement('p');
+        todoDescription.textContent = t.todo.description;
+        todoItem.appendChild(todoDescription);
+
+        
+        todoList.appendChild(todoItem);
+    })
+    
+}
 const clearTodos = () => {
     localStorage.removeItem('todos');
 //     let items = JSON.parse(localStorage.todos);
@@ -46,5 +70,4 @@ const clearTodos = () => {
 //     console.log(items);
     refreshTodos();
 }
-
-export {saveTodo, getTodo, getAllTodos, clearTodos};
+export {saveTodo, getTodo, getAllTodos, clearTodos, refreshTodos};

@@ -1,6 +1,6 @@
 import { layout } from './layout/layout';
 import './style.css';
-import { refreshTodos } from './DOMstuff/createTodoForm';
+import { refreshTodos } from './controllers/localstorage';
 
 // console.log(JSON.parse(localStorage.getItem(`${drinkWater}`)));
 
