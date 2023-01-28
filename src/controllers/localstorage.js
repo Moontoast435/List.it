@@ -1,3 +1,5 @@
+import { refreshTodos } from "../DOMstuff/createTodoForm";
+
 const saveTodo = (todo) => {
 
     try {
@@ -33,4 +35,16 @@ const getAllTodos = () => {
         console.error(`Failed to retrieve todo. Reason : ${err}`);
     }
 }
-export {saveTodo, getTodo, getAllTodos};
+
+const clearTodos = () => {
+    localStorage.removeItem('todos');
+//     let items = JSON.parse(localStorage.todos);
+//     console.log(items);
+//     for (let i = 0 ; i < items.length ; i ++ ) {
+//         items.splice(i, 1)
+//     }
+//     console.log(items);
+    refreshTodos();
+}
+
+export {saveTodo, getTodo, getAllTodos, clearTodos};

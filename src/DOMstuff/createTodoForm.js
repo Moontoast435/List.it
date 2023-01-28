@@ -70,7 +70,7 @@ const createForm = () => {
               
                 // Get the form data from the event object
                 const data = e.formData;
-
+                
                 // Create todo using formData
                 const todo = todoItem(...data.values())
                 saveTodo(todo);

@@ -1,6 +1,7 @@
 import { add } from 'lodash';
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
+import { clearTodos } from '../controllers/localstorage';
 
 function layout() {
     const mainContainer = document.createElement('div');
@@ -24,8 +25,15 @@ function layout() {
     addTodoButton.textContent = 'Click here to create a new to-do list item';
     addTodoButton.addEventListener('click', createForm);
 
+    const clearAllTodos = document.createElement('button');
+    clearAllTodos.classList = 'clear-todos-button';
+    clearAllTodos.textContent = 'Clear todos';
+    clearAllTodos.addEventListener('click', clearTodos)
+
+
     mainContainer.appendChild(navBar);
     mainContainer.appendChild(addTodoButton);
+    mainContainer.appendChild(clearAllTodos);
 
     const todoItemContainer = document.createElement('div');
     todoItemContainer.classList = 'todo-items';
