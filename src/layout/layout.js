@@ -1,7 +1,7 @@
 import { add } from 'lodash';
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
-import { clearTodos } from '../controllers/localstorage';
+import  toDoRoutes  from '../controllers/localstorage';
 
 function layout() {
     const mainContainer = document.createElement('div');
@@ -28,7 +28,7 @@ function layout() {
     const clearAllTodos = document.createElement('button');
     clearAllTodos.classList = 'clear-todos-button';
     clearAllTodos.textContent = 'Clear todos';
-    clearAllTodos.addEventListener('click', clearTodos)
+    clearAllTodos.addEventListener('click', toDoRoutes.clearTodos)
 
 
     mainContainer.appendChild(navBar);

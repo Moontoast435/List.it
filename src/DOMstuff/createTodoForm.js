@@ -1,4 +1,4 @@
-import { saveTodo, refreshTodos } from '../controllers/localstorage';
+import  toDoRoutes  from '../controllers/localstorage';
 import './style.css';
 import { todoItem } from '../todo/todo';
 
@@ -73,7 +73,7 @@ const createForm = () => {
                 
                 // Create todo using formData
                 const todo = todoItem(...data.values())
-                saveTodo(todo);
+                toDoRoutes.saveTodo(todo);
             
             overlay.remove();
             refreshTodos();

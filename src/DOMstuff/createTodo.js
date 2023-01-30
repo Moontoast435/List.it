@@ -12,6 +12,9 @@ const createTodo = (t, i) => {
     todoDescription.textContent = t.todo.description;
     todoItem.appendChild(todoDescription);
 
+    const deleteTodoBtn = document.createElement('button');
+    deleteTodoBtn.id = i;
+    todoItem.appendChild(deleteTodoBtn);
     
     todoList.appendChild(todoItem);
 }
