@@ -1,11 +1,12 @@
 import { layout } from './layout/layout';
 import './style.css';
-import  toDoRoutes  from './controllers/localstorage';
+import {refreshTodos} from './controllers/localstorage';
 
 // console.log(JSON.parse(localStorage.getItem(`${drinkWater}`)));
 
-console.log(localStorage.todos);
+// console.log(localStorage.todos);
 
 document.body.appendChild(layout());
 
-toDoRoutes.refreshTodos();
+
+refreshTodos();

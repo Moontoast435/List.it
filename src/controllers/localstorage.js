@@ -1,13 +1,13 @@
 import {createTodo} from '../DOMstuff/createTodo';
 
-const toDoRoutes = () => {
+
     const saveTodo = (todo) => {
 
         try {
             let todoItems = JSON.parse(localStorage.getItem('todos')) || [];
-            todoItems.push({todo})
+            todoItems.push({todo});
             localStorage.setItem('todos', JSON.stringify(todoItems));
-            return`successfully saved todo!`;
+            console.log(`Successfully saved todo!`)
         } catch(err) {
             console.error(`Failed to set todo. Reason : ${err}`);
 
@@ -44,7 +44,6 @@ const toDoRoutes = () => {
         todoList.textContent = '';
         try {
             const data = getAllTodos();
-
             data.map((t, i) => {
                 createTodo(t, i);
             })
@@ -67,12 +66,17 @@ const toDoRoutes = () => {
     //     console.log(items);
         refreshTodos();
     }
-    return {
-        saveTodo,
-        getTodo,
-        getAllTodos,
-        refreshTodos,
-        clearTodos
+
+    const deleteTodo = (id) => {
+        try {
+            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            todoItems.splice(id , 1);
+            localStorage.setItem('todos', JSON.stringify(todoItems));
+            refreshTodos();
+            console.log(`Todo deleted`);
+        } catch (err) {
+            console.error(`Could not delete todo: ${err}`);
+        }
     }
-}
-export default toDoRoutes;
+
+export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo};

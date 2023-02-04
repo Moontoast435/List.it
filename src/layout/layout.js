@@ -1,7 +1,7 @@
 import { add } from 'lodash';
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
-import  toDoRoutes  from '../controllers/localstorage';
+let toDoRoutes = require('../controllers/localstorage.js');
 
 function layout() {
     const mainContainer = document.createElement('div');

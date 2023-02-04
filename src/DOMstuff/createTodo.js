@@ -1,3 +1,5 @@
+import {deleteTodo} from '../controllers/localstorage';
+
 const createTodo = (t, i) => {
     const todoList = document.getElementsByClassName('todo-items')[0];
     
@@ -14,7 +16,11 @@ const createTodo = (t, i) => {
 
     const deleteTodoBtn = document.createElement('button');
     deleteTodoBtn.id = i;
+    deleteTodoBtn.textContent = `DELETE`;
+    deleteTodoBtn.onclick = function() {deleteTodo(parseInt(deleteTodoBtn.id))};
     todoItem.appendChild(deleteTodoBtn);
+
+    
     
     todoList.appendChild(todoItem);
 }
