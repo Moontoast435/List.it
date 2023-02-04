@@ -20,7 +20,20 @@ const createTodo = (t, i) => {
     deleteTodoBtn.onclick = function() {deleteTodo(parseInt(deleteTodoBtn.id))};
     todoItem.appendChild(deleteTodoBtn);
 
-    
+    const dueDate = document.createElement('p');
+    dueDate.textContent = t.todo.dueDate;
+    // dueDate.style.display = 'none';
+    todoItem.appendChild(dueDate);
+
+    const priority = document.createElement('p');
+    priority.textContent = t.todo.priority;
+    // priority.style.display = 'none';
+    todoItem.appendChild(priority);
+
+    const isCompleted = document.createElement('p');
+    isCompleted.textContent = t.todo.isCompleted;
+    // isCompleted.style.display = 'none';
+    todoItem.appendChild(isCompleted);
     
     todoList.appendChild(todoItem);
 }
