@@ -1,4 +1,4 @@
-import {deleteTodo} from '../controllers/localstorage';
+import {deleteTodo, changeCompletedFalse, changeCompletedTrue} from '../controllers/localstorage';
 
 const createTodo = (t, i) => {
     const todoList = document.getElementsByClassName('todo-items')[0];
@@ -30,8 +30,16 @@ const createTodo = (t, i) => {
     // priority.style.display = 'none';
     todoItem.appendChild(priority);
 
-    const isCompleted = document.createElement('p');
-    isCompleted.textContent = t.todo.isCompleted;
+    const isCompleted = document.createElement('input');
+    isCompleted.id = i;
+    isCompleted.setAttribute('type', 'checkbox');
+    isCompleted.addEventListener('click', function () {
+        if (!this.checked) {
+            changeCompletedFalse(parseInt(isCompleted.id))    
+        } else {
+            changeCompletedTrue(parseInt(isCompleted.id))
+        }
+    }) ;
     // isCompleted.style.display = 'none';
     todoItem.appendChild(isCompleted);
     

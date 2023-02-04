@@ -79,4 +79,28 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo};
+    const changeCompletedTrue = (id) => {
+        try {
+            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            todoItems[id].isCompleted = 'true';
+            localStorage.setItem('todos', JSON.stringify(todoItems));
+            
+            console.log(`Todo completed`);
+        } catch (err) {
+            console.error(`Could not complete todo: ${err}`);
+        }
+    }
+
+    const changeCompletedFalse = (id) => {
+        try {
+            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            todoItems[id].isCompleted = false;
+            localStorage.setItem('todos', JSON.stringify(todoItems));
+           
+            console.log(`Todo uncomplete`);
+        } catch (err) {
+            console.error(`Could not uncomplete todo: ${err}`);
+        }
+    }
+
+export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo, changeCompletedTrue, changeCompletedFalse};
