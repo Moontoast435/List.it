@@ -1,12 +1,19 @@
 import {createTodo} from '../DOMstuff/createTodo';
 
+    // const createProject = () => {
+    //     try {
 
-    const saveTodo = (todo) => {
+    //     } catch (err) {
+
+    //     }
+    // }
+
+    const saveTodo = (todo, project) => {
 
         try {
-            let todoItems = JSON.parse(localStorage.getItem('todos')) || [];
+            let todoItems = JSON.parse(localStorage.getItem(`${project}`)) || [];
             todoItems.push({todo});
-            localStorage.setItem('todos', JSON.stringify(todoItems));
+            localStorage.setItem(`${project}`, JSON.stringify(todoItems));
             console.log(`Successfully saved todo!`)
         } catch(err) {
             console.error(`Failed to set todo. Reason : ${err}`);
@@ -27,9 +34,9 @@ import {createTodo} from '../DOMstuff/createTodo';
 
     }
 
-    const getAllTodos = () => {
+    const getAllTodos = (project) => {
         try {
-            const items = JSON.parse(localStorage.todos);
+            const items = JSON.parse(localStorage[`${project}`]);
             console.log(`Succesfully retrieved all todos!`);
             return items;
         } catch (err) {
@@ -39,11 +46,11 @@ import {createTodo} from '../DOMstuff/createTodo';
 
 
 
-    const refreshTodos = () => {
+    const refreshTodos = (project) => {
         const todoList = document.getElementsByClassName('todo-items')[0];
         todoList.textContent = '';
         try {
-            const data = getAllTodos();
+            const data = getAllTodos(project);
             data.map((t, i) => {
                 createTodo(t, i);
             })
@@ -57,16 +64,16 @@ import {createTodo} from '../DOMstuff/createTodo';
         
     }
 
-    const clearTodos = () => {
-        localStorage.removeItem('todos');
+    const clearTodos = (project) => {
+        localStorage.removeItem(`${project}`);
         refreshTodos();
     }
 
-    const deleteTodo = (id) => {
+    const deleteTodo = (project, id) => {
         try {
-            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            let todoItems = JSON.parse(localStorage.getItem(`${project}`));
             todoItems.splice(id , 1);
-            localStorage.setItem('todos', JSON.stringify(todoItems));
+            localStorage.setItem(`${project}`, JSON.stringify(todoItems));
             refreshTodos();
             console.log(`Todo deleted`);
         } catch (err) {
@@ -74,11 +81,11 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-    const changeCompletedTrue = (id) => {
+    const changeCompletedTrue = (project, id) => {
         try {
-            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            let todoItems = JSON.parse(localStorage.getItem(`${project}`));
             todoItems[id].todo.isCompleted = 'true';
-            localStorage.setItem('todos', JSON.stringify(todoItems));
+            localStorage.setItem(`${project}`, JSON.stringify(todoItems));
             
             console.log(`Todo completed`);
         } catch (err) {
@@ -86,11 +93,11 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-    const changeCompletedFalse = (id) => {
+    const changeCompletedFalse = (project, id) => {
         try {
-            let todoItems = JSON.parse(localStorage.getItem('todos'));
+            let todoItems = JSON.parse(localStorage.getItem(`${project}`));
             todoItems[id].todo.isCompleted = false;
-            localStorage.setItem('todos', JSON.stringify(todoItems));
+            localStorage.setItem(`${project}`, JSON.stringify(todoItems));
            
             console.log(`Todo uncomplete`);
         } catch (err) {
@@ -98,8 +105,8 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-    const checkCompletedStatus = (id) => {
-        let todoItems = JSON.parse(localStorage.getItem('todos'));
+    const checkCompletedStatus = (project, id) => {
+        let todoItems = JSON.parse(localStorage.getItem(`${project}`));
         if (todoItems[id].todo.isCompleted) {
             return true;
         } else {

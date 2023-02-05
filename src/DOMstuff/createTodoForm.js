@@ -73,7 +73,7 @@ const createForm = () => {
                 
                 // Create todo using formData
                 const todo = todoItem(...data.values())
-                saveTodo(todo);
+                saveTodo(todo, 'project1');
             
             overlay.remove();
             refreshTodos();

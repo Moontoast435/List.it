@@ -21,8 +21,8 @@ import {deleteTodo, changeCompletedFalse, changeCompletedTrue, checkCompletedSta
 // }
 
 const createTodo = (t, i) => {
+   
     const todoList = document.getElementsByClassName('todo-items')[0];
-    
     const todoItem = document.createElement('div');
     todoItem.id = i;
 
@@ -37,7 +37,7 @@ const createTodo = (t, i) => {
     const deleteTodoBtn = document.createElement('button');
     deleteTodoBtn.id = i;
     deleteTodoBtn.textContent = `DELETE`;
-    deleteTodoBtn.onclick = function() {deleteTodo(parseInt(deleteTodoBtn.id))};
+    deleteTodoBtn.onclick = function() {deleteTodo(`project1`, parseInt(deleteTodoBtn.id))};
     todoItem.appendChild(deleteTodoBtn);
 
     const expandBtn = document.createElement('button');
@@ -94,14 +94,15 @@ const createTodo = (t, i) => {
     isCompleted.id = i;
     isCompleted.setAttribute('type', 'checkbox');
 
-    let checkedStatus = checkCompletedStatus(parseInt(i));
+    let checkedStatus = checkCompletedStatus(`project1`, parseInt(i));
 
-    checkedStatus ? isCompleted.checked = true : isCompleted.checked = false;
+    checkedStatus ? isCompleted.checked = true 
+    : isCompleted.checked = false;
 
     isCompleted.addEventListener('click', function () {
         !this.checked 
-        ? changeCompletedFalse(parseInt(isCompleted.id)) 
-        : changeCompletedTrue(parseInt(isCompleted.id));
+        ? changeCompletedFalse(`project1`,parseInt(isCompleted.id)) 
+        : changeCompletedTrue(`project1`,parseInt(isCompleted.id));
     }) ;
     todoItem.appendChild(isCompleted);
     
