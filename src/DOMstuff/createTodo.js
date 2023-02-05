@@ -1,5 +1,25 @@
 import {deleteTodo, changeCompletedFalse, changeCompletedTrue} from '../controllers/localstorage';
 
+
+// const hideDetailsBtn = (parentDiv, expandBtn) => {
+//     const hideDetails = document.createElement('button');
+//     hideDetails.textContent = 'Hide details';
+//     parentDiv.appendChild(hideDetails);
+
+//     hideDetails.addEventListener('click', function () {
+//         const revealedDetails = document.getElementsByClassName('hidden-details reveal-details');
+
+//         for (let i = 0 ; i < revealedDetails.length ; i ++ ) {
+//             revealedDetails[i].classList.remove('reveal-details');
+//         }
+
+//         expandBtn.style.display = 'block';
+
+//         hideDetails.style.display = 'none';
+    
+//     })
+// }
+
 const createTodo = (t, i) => {
     const todoList = document.getElementsByClassName('todo-items')[0];
     
@@ -22,15 +42,38 @@ const createTodo = (t, i) => {
 
     const expandBtn = document.createElement('button');
     expandBtn.textContent = 'Show more details';
+
+    const hideDetails = document.createElement('button');
+    hideDetails.textContent = 'Hide details';
+    todoItem.appendChild(hideDetails);
+    hideDetails.style.display = 'none';
+
+    hideDetails.addEventListener('click', function () {
+
+        const revealedDetails = document.getElementsByClassName('hidden-details');
+        for (let i = 0 ; i < revealedDetails.length ; i ++ ) {
+            revealedDetails[i].classList.remove('reveal-details');
+        }
+        expandBtn.style.display = 'block';
+        hideDetails.style.display = 'none';
+    
+    })
+
     expandBtn.addEventListener('click', function () {
-        
+
         let hiddenDetails = document.getElementsByClassName('hidden-details');
         
         for (let i = 0 ; i < hiddenDetails.length ; i ++ ) {
             hiddenDetails[i].classList.add('reveal-details');
         }
+
+        expandBtn.style.display = 'none';
+        hideDetails.style.display = 'block';
+        
         
     })
+
+   
 
     todoItem.appendChild(expandBtn);
 
