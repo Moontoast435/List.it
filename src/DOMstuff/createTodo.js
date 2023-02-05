@@ -1,4 +1,4 @@
-import {deleteTodo, changeCompletedFalse, changeCompletedTrue} from '../controllers/localstorage';
+import {deleteTodo, changeCompletedFalse, changeCompletedTrue, checkCompletedStatus} from '../controllers/localstorage';
 
 
 // const hideDetailsBtn = (parentDiv, expandBtn) => {
@@ -90,14 +90,18 @@ const createTodo = (t, i) => {
 
     const isCompleted = document.createElement('input');
     isCompleted.classList = 'hidden-details';
+
     isCompleted.id = i;
     isCompleted.setAttribute('type', 'checkbox');
+
+    let checkedStatus = checkCompletedStatus(parseInt(i));
+
+    checkedStatus ? isCompleted.checked = true : isCompleted.checked = false;
+
     isCompleted.addEventListener('click', function () {
-        if (!this.checked) {
-            changeCompletedFalse(parseInt(isCompleted.id))    
-        } else {
-            changeCompletedTrue(parseInt(isCompleted.id))
-        }
+        !this.checked 
+        ? changeCompletedFalse(parseInt(isCompleted.id)) 
+        : changeCompletedTrue(parseInt(isCompleted.id));
     }) ;
     todoItem.appendChild(isCompleted);
     

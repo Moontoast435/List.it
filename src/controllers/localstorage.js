@@ -56,14 +56,9 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
         
     }
+
     const clearTodos = () => {
         localStorage.removeItem('todos');
-    //     let items = JSON.parse(localStorage.todos);
-    //     console.log(items);
-    //     for (let i = 0 ; i < items.length ; i ++ ) {
-    //         items.splice(i, 1)
-    //     }
-    //     console.log(items);
         refreshTodos();
     }
 
@@ -103,4 +98,12 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo, changeCompletedTrue, changeCompletedFalse};
+    const checkCompletedStatus = (id) => {
+        let todoItems = JSON.parse(localStorage.getItem('todos'));
+        if (todoItems[id].todo.isCompleted) {
+            return true;
+        } else {
+            return false
+        }
+    }
+export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo, changeCompletedTrue, changeCompletedFalse, checkCompletedStatus};
