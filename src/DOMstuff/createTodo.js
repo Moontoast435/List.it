@@ -50,7 +50,8 @@ const createTodo = (t, i) => {
 
     hideDetails.addEventListener('click', function () {
 
-        const revealedDetails = document.getElementsByClassName('hidden-details');
+        const revealedDetails = todoItem.getElementsByClassName('hidden-details');
+
         for (let i = 0 ; i < revealedDetails.length ; i ++ ) {
             revealedDetails[i].classList.remove('reveal-details');
         }
@@ -61,7 +62,7 @@ const createTodo = (t, i) => {
 
     expandBtn.addEventListener('click', function () {
 
-        let hiddenDetails = document.getElementsByClassName('hidden-details');
+        let hiddenDetails = todoItem.getElementsByClassName('hidden-details');
         
         for (let i = 0 ; i < hiddenDetails.length ; i ++ ) {
             hiddenDetails[i].classList.add('reveal-details');
