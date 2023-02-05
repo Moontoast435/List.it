@@ -82,7 +82,7 @@ import {createTodo} from '../DOMstuff/createTodo';
     const changeCompletedTrue = (id) => {
         try {
             let todoItems = JSON.parse(localStorage.getItem('todos'));
-            todoItems[id].isCompleted = 'true';
+            todoItems[id].todo.isCompleted = 'true';
             localStorage.setItem('todos', JSON.stringify(todoItems));
             
             console.log(`Todo completed`);
@@ -94,7 +94,7 @@ import {createTodo} from '../DOMstuff/createTodo';
     const changeCompletedFalse = (id) => {
         try {
             let todoItems = JSON.parse(localStorage.getItem('todos'));
-            todoItems[id].isCompleted = false;
+            todoItems[id].todo.isCompleted = false;
             localStorage.setItem('todos', JSON.stringify(todoItems));
            
             console.log(`Todo uncomplete`);

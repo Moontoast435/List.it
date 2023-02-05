@@ -21,16 +21,17 @@ const createTodo = (t, i) => {
     todoItem.appendChild(deleteTodoBtn);
 
     const dueDate = document.createElement('p');
+    dueDate.classList = 'hidden-details';
     dueDate.textContent = t.todo.dueDate;
-    // dueDate.style.display = 'none';
     todoItem.appendChild(dueDate);
 
     const priority = document.createElement('p');
+    priority.classList = 'hidden-details';
     priority.textContent = t.todo.priority;
-    // priority.style.display = 'none';
     todoItem.appendChild(priority);
 
     const isCompleted = document.createElement('input');
+    isCompleted.classList = 'hidden-details';
     isCompleted.id = i;
     isCompleted.setAttribute('type', 'checkbox');
     isCompleted.addEventListener('click', function () {
@@ -40,7 +41,6 @@ const createTodo = (t, i) => {
             changeCompletedTrue(parseInt(isCompleted.id))
         }
     }) ;
-    // isCompleted.style.display = 'none';
     todoItem.appendChild(isCompleted);
     
     todoList.appendChild(todoItem);
