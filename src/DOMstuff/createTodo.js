@@ -20,6 +20,20 @@ const createTodo = (t, i) => {
     deleteTodoBtn.onclick = function() {deleteTodo(parseInt(deleteTodoBtn.id))};
     todoItem.appendChild(deleteTodoBtn);
 
+    const expandBtn = document.createElement('button');
+    expandBtn.textContent = 'Show more details';
+    expandBtn.addEventListener('click', function () {
+        
+        let hiddenDetails = document.getElementsByClassName('hidden-details');
+        
+        for (let i = 0 ; i < hiddenDetails.length ; i ++ ) {
+            hiddenDetails[i].classList.add('reveal-details');
+        }
+        
+    })
+
+    todoItem.appendChild(expandBtn);
+
     const dueDate = document.createElement('p');
     dueDate.classList = 'hidden-details';
     dueDate.textContent = t.todo.dueDate;
