@@ -1,4 +1,3 @@
-import { add } from 'lodash';
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
 let toDoRoutes = require('../controllers/localstorage.js');

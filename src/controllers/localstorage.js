@@ -1,12 +1,14 @@
 import {createTodo} from '../DOMstuff/createTodo';
 
-    // const createProject = () => {
-    //     try {
-
-    //     } catch (err) {
-
-    //     }
-    // }
+    const createProject = (project) => {
+        try {
+            let todoItems = [];
+            localStorage.setItem(`${project}`, JSON.stringify(todoItems));
+            console.log(`Successfully created new project`);
+        } catch (err) {
+            console.error(`Failed to create new project. Reason : ${err}`);
+        }
+    }
 
     const saveTodo = (todo, project) => {
 
@@ -113,4 +115,16 @@ import {createTodo} from '../DOMstuff/createTodo';
             return false
         }
     }
-export {saveTodo, getTodo, getAllTodos, refreshTodos, clearTodos, deleteTodo, changeCompletedTrue, changeCompletedFalse, checkCompletedStatus};
+export 
+{
+        saveTodo, 
+        getTodo, 
+        getAllTodos, 
+        refreshTodos, 
+        clearTodos, 
+        deleteTodo, 
+        changeCompletedTrue, 
+        changeCompletedFalse, 
+        checkCompletedStatus,
+        createProject
+    };
