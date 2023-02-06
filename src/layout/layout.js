@@ -1,6 +1,6 @@
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
-let toDoRoutes = require('../controllers/localstorage.js');
+import { clearTodos, createProject } from '../controllers/localstorage';
 
 function layout() {
     const mainContainer = document.createElement('div');
@@ -16,6 +16,8 @@ function layout() {
     addProjectButton.classList = 'add-project-button';
     addProjectButton.textContent = '+';
 
+    addProjectButton.addEventListener('click', createProject);
+
     navBar.appendChild(defaultProject);
     navBar.appendChild(addProjectButton);
 
@@ -27,7 +29,7 @@ function layout() {
     const clearAllTodos = document.createElement('button');
     clearAllTodos.classList = 'clear-todos-button';
     clearAllTodos.textContent = 'Clear todos';
-    clearAllTodos.addEventListener('click', toDoRoutes.clearTodos)
+    clearAllTodos.addEventListener('click', clearTodos)
 
 
     mainContainer.appendChild(navBar);

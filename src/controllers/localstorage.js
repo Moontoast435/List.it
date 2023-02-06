@@ -46,15 +46,13 @@ import {createTodo} from '../DOMstuff/createTodo';
         }
     }
 
-
-
     const refreshTodos = (project) => {
         const todoList = document.getElementsByClassName('todo-items')[0];
         todoList.textContent = '';
         try {
             const data = getAllTodos(project);
             data.map((t, i) => {
-                createTodo(t, i);
+                createTodo(t, i, project);
             })
 
             return`Refreshed todos`;
@@ -66,9 +64,17 @@ import {createTodo} from '../DOMstuff/createTodo';
         
     }
 
-    const clearTodos = (project) => {
-        localStorage.removeItem(`${project}`);
-        refreshTodos();
+    const clearTodos = () => {
+        try {
+            const currentProjectName = document.getElementsByClassName('todo-items')[0].firstChild.id;
+            let todoItems = JSON.parse(localStorage.getItem(`${currentProjectName}`));
+            todoItems = [];
+            localStorage.setItem(`${currentProjectName}`, JSON.stringify(todoItems));
+            refreshTodos();
+            console.log(`Cleared all todos!`);
+        } catch (err) {
+            console.error(`Failed to clear todos. ${err}`)
+        }
     }
 
     const deleteTodo = (project, id) => {

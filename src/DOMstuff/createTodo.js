@@ -1,10 +1,10 @@
 import {deleteTodo, changeCompletedFalse, changeCompletedTrue, checkCompletedStatus} from '../controllers/localstorage';
 
-const createTodo = (t, i) => {
+const createTodo = (t, i, projectName) => {
    
     const todoList = document.getElementsByClassName('todo-items')[0];
     const todoItem = document.createElement('div');
-    todoItem.id = i;
+    todoItem.id = projectName;
 
     const todoTitle = document.createElement('h3');
     todoTitle.textContent = t.todo.title;
