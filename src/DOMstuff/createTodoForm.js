@@ -76,7 +76,7 @@ const createForm = () => {
                 saveTodo(todo, 'project1');
             
             overlay.remove();
-            refreshTodos();
+            refreshTodos('project1');
         });
     })
     } else {

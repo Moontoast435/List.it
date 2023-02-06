@@ -1,25 +1,5 @@
 import {deleteTodo, changeCompletedFalse, changeCompletedTrue, checkCompletedStatus} from '../controllers/localstorage';
 
-
-// const hideDetailsBtn = (parentDiv, expandBtn) => {
-//     const hideDetails = document.createElement('button');
-//     hideDetails.textContent = 'Hide details';
-//     parentDiv.appendChild(hideDetails);
-
-//     hideDetails.addEventListener('click', function () {
-//         const revealedDetails = document.getElementsByClassName('hidden-details reveal-details');
-
-//         for (let i = 0 ; i < revealedDetails.length ; i ++ ) {
-//             revealedDetails[i].classList.remove('reveal-details');
-//         }
-
-//         expandBtn.style.display = 'block';
-
-//         hideDetails.style.display = 'none';
-    
-//     })
-// }
-
 const createTodo = (t, i) => {
    
     const todoList = document.getElementsByClassName('todo-items')[0];
