@@ -1,5 +1,6 @@
 import './style.css';
 import { createForm } from '../DOMstuff/createTodoForm';
+import { createProjectTab } from '../DOMstuff/createProject';
 import { clearTodos, createProject } from '../controllers/localstorage';
 
 function layout() {
@@ -16,7 +17,7 @@ function layout() {
     addProjectButton.classList = 'add-project-button';
     addProjectButton.textContent = '+';
 
-    addProjectButton.addEventListener('click', createProject);
+    addProjectButton.addEventListener('click', createProjectTab);
 
     navBar.appendChild(defaultProject);
     navBar.appendChild(addProjectButton);

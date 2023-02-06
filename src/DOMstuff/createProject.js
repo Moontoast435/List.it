@@ -5,11 +5,11 @@ const createProjectTab = () => {
     newProject.classList = 'project-button';
     
     const existingProjects = document.getElementsByClassName('project-button');
-    const projectName = `Project ${existingProjects.length}`
+    const projectName = `Project ${existingProjects.length + 1}`
     newProject.textContent = projectName;
 
     const navBar = document.getElementsByClassName('navbar')[0];
-
+    console.log(navBar);
     navBar.appendChild(newProject);
 
     createProject(projectName);
