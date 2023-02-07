@@ -1,6 +1,17 @@
-import { createProject, refreshTodos } from "../controllers/localstorage";
+import { createProject, refreshTodos, refreshProjects } from "../controllers/localstorage";
 
 const createProjectTab = () => {
+
+    const existingProjects = document.getElementsByClassName('project-button');
+    const projectName = `Project ${existingProjects.length + 1}`
+
+
+
+    createProject(projectName);
+    refreshTodos(projectName);
+}
+
+const displayExistingProjects = () => {
     const newProject = document.createElement('button');
     newProject.classList = 'project-button';
     
@@ -12,10 +23,9 @@ const createProjectTab = () => {
     const addBtn = document.getElementsByClassName('add-project-button')[0];
 
     navBar.insertBefore(newProject, addBtn);
-
-
-    createProject(projectName);
-    refreshTodos(projectName);
 }
 
-export { createProjectTab } ;
+export { 
+    createProjectTab,
+    displayExistingProjects
+};

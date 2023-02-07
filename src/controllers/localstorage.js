@@ -1,4 +1,5 @@
-import {createTodo} from '../DOMstuff/createTodo';
+import { createTodo } from '../DOMstuff/createTodo';
+import { displayExistingProjects } from '../DOMstuff/createProject';
 
     const createProject = (project) => {
         try {
@@ -7,6 +8,17 @@ import {createTodo} from '../DOMstuff/createTodo';
             console.log(`Successfully created new project`);
         } catch (err) {
             console.error(`Failed to create new project. Reason : ${err}`);
+        }
+    }
+
+    const refreshProjects = () => {
+        const existingProjects = document.getElementsByClassName('project-button');
+        for (let i = 0 ; i < existingProjects.length ; i ++ ) {
+            existingProjects[i].remove();
+        }
+        
+        for (let i = 0 ; i < localStorage.length ; i ++ ) {
+            displayExistingProjects();
         }
     }
 
@@ -49,6 +61,8 @@ import {createTodo} from '../DOMstuff/createTodo';
     const refreshTodos = (project) => {
         if (localStorage.length === 0) {
             createProject('Project 1');
+        } else {
+           refreshProjects();
         }
         const todoList = document.getElementsByClassName('todo-items')[0];
         todoList.textContent = '';
@@ -135,5 +149,6 @@ export
         changeCompletedTrue, 
         changeCompletedFalse, 
         checkCompletedStatus,
-        createProject
+        createProject,
+        refreshProjects
     };
