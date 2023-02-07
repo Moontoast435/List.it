@@ -9,7 +9,6 @@ const createProjectTab = () => {
     newProject.textContent = projectName;
 
     const navBar = document.getElementsByClassName('navbar')[0];
-    console.log(navBar);
     navBar.appendChild(newProject);
 
     createProject(projectName);

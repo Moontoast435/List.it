@@ -47,6 +47,9 @@ import {createTodo} from '../DOMstuff/createTodo';
     }
 
     const refreshTodos = (project) => {
+        if (localStorage.length === 0) {
+            createProject('Project 1');
+        }
         const todoList = document.getElementsByClassName('todo-items')[0];
         todoList.textContent = '';
         try {
