@@ -19,11 +19,15 @@ const displayExistingProjects = () => {
         const projectBtn = document.createElement('button');
         projectBtn.classList = 'project-button';
         projectBtn.textContent = `Project ${i + 1}`;
-        
+
         const navBar = document.getElementsByClassName('navbar')[0];
         const addBtn = document.getElementsByClassName('add-project-button')[0];
     
         navBar.insertBefore(projectBtn, addBtn);
+
+        if (data.length === 5) {
+            addBtn.style.display = 'none';
+        }
     }
 
 
