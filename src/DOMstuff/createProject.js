@@ -9,7 +9,10 @@ const createProjectTab = () => {
     newProject.textContent = projectName;
 
     const navBar = document.getElementsByClassName('navbar')[0];
-    navBar.appendChild(newProject);
+    const addBtn = document.getElementsByClassName('add-project-button')[0];
+
+    navBar.insertBefore(newProject, addBtn);
+
 
     createProject(projectName);
     refreshTodos(projectName);

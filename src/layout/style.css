@@ -17,9 +17,9 @@
 
 .project-button {
     height: 100%;
-    width: 5em;
+    width:80%;
     background-color: beige;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .add-todo-button { 
