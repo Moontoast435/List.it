@@ -12,14 +12,12 @@ import { displayExistingProjects } from '../DOMstuff/createProject';
     }
 
     const refreshProjects = () => {
-        const existingProjects = document.getElementsByClassName('project-button');
-        for (let i = 0 ; i < existingProjects.length ; i ++ ) {
-            existingProjects[i].remove();
+        let existingProjects = document.getElementsByClassName('project-button');
+        while(existingProjects.length > 0) {
+            existingProjects[0].parentNode.removeChild(existingProjects[0]);
         }
         
-        for (let i = 0 ; i < localStorage.length ; i ++ ) {
-            displayExistingProjects();
-        }
+         displayExistingProjects();
     }
 
     const saveTodo = (todo, project) => {
