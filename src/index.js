@@ -9,4 +9,4 @@ import {refreshTodos} from './controllers/localstorage';
 document.body.appendChild(layout());
 
 
-refreshTodos();
+refreshTodos('Project 1');

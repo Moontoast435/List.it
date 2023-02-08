@@ -70,7 +70,7 @@ import { displayExistingProjects } from '../DOMstuff/createProject';
                 createTodo(t, i, project);
             })
 
-            return`Refreshed todos`;
+            console.log(`Refreshed todos`);
             
         } catch (err) {
             return `Failed to refresh todos. ${err}`;

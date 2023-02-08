@@ -3,14 +3,6 @@ import './style.css';
 import { todoItem } from '../todo/todo';
 
 const createForm = () => {
-    let selectedProject;
-    const existingProjects = document.getElementsByClassName('project-buttons');
-
-    for (let i = 0 ; i < existingProjects.length ; i ++ ) {
-        if (existingProjects[i].id) {
-            let selectedProject = `Project ${i+1}`;
-        }
-    }
     
     const toggleFormOn = () => {
         const overlay = document.getElementsByClassName('modal-overlay')[0];
@@ -82,6 +74,8 @@ const createForm = () => {
                 // Create todo using formData
                 const todo = todoItem(...data.values());
 
+                let selectedProject = document.getElementById('Selected').textContent;
+                
                 saveTodo(todo, selectedProject);
             
             overlay.remove();

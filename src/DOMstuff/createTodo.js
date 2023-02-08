@@ -1,15 +1,15 @@
 import {deleteTodo, changeCompletedFalse, changeCompletedTrue, checkCompletedStatus} from '../controllers/localstorage';
 
-const createTodo = (t, i, projectName) => {
+const createTodo = (t, i, project) => {
    
     const todoList = document.getElementsByClassName('todo-items')[0];
     const todoItem = document.createElement('div');
-    todoItem.id = projectName;
+    todoItem.id = i;
 
     const todoTitle = document.createElement('h3');
     todoTitle.textContent = t.todo.title;
     todoItem.appendChild(todoTitle);
-
+    
     const todoDescription = document.createElement('p');
     todoDescription.textContent = t.todo.description;
     todoItem.appendChild(todoDescription);
@@ -17,12 +17,12 @@ const createTodo = (t, i, projectName) => {
     const deleteTodoBtn = document.createElement('button');
     deleteTodoBtn.id = i;
     deleteTodoBtn.textContent = `DELETE`;
-    deleteTodoBtn.onclick = function() {deleteTodo(`project1`, parseInt(deleteTodoBtn.id))};
+    deleteTodoBtn.onclick = function() {deleteTodo(project, parseInt(deleteTodoBtn.id))};
     todoItem.appendChild(deleteTodoBtn);
 
     const expandBtn = document.createElement('button');
     expandBtn.textContent = 'Show more details';
-
+    
     const hideDetails = document.createElement('button');
     hideDetails.textContent = 'Hide details';
     todoItem.appendChild(hideDetails);
@@ -74,19 +74,20 @@ const createTodo = (t, i, projectName) => {
     isCompleted.id = i;
     isCompleted.setAttribute('type', 'checkbox');
 
-    let checkedStatus = checkCompletedStatus(`project1`, parseInt(i));
+    let checkedStatus = checkCompletedStatus(project, parseInt(i));
 
     checkedStatus ? isCompleted.checked = true 
     : isCompleted.checked = false;
 
     isCompleted.addEventListener('click', function () {
         !this.checked 
-        ? changeCompletedFalse(`project1`,parseInt(isCompleted.id)) 
-        : changeCompletedTrue(`project1`,parseInt(isCompleted.id));
+        ? changeCompletedFalse(project ,parseInt(isCompleted.id)) 
+        : changeCompletedTrue(project ,parseInt(isCompleted.id));
     }) ;
     todoItem.appendChild(isCompleted);
     
     todoList.appendChild(todoItem);
+   
 }
 
 export {createTodo};
