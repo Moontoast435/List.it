@@ -25,12 +25,17 @@ const displayExistingProjects = () => {
     
         navBar.insertBefore(projectBtn, addBtn);
 
+        
+
+
         if (data.length === 5) {
             addBtn.style.display = 'none';
         }
     }
 
-
+    const existingProjects = document.getElementsByClassName('project-button');
+    existingProjects[0].id = 'Selected';
+    
 }
 
 export { 

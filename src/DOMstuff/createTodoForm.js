@@ -3,7 +3,15 @@ import './style.css';
 import { todoItem } from '../todo/todo';
 
 const createForm = () => {
+    let selectedProject;
+    const existingProjects = document.getElementsByClassName('project-buttons');
 
+    for (let i = 0 ; i < existingProjects.length ; i ++ ) {
+        if (existingProjects[i].id) {
+            let selectedProject = `Project ${i+1}`;
+        }
+    }
+    
     const toggleFormOn = () => {
         const overlay = document.getElementsByClassName('modal-overlay')[0];
         overlay.classList.add('modal-visible');
@@ -72,11 +80,12 @@ const createForm = () => {
                 const data = e.formData;
                 
                 // Create todo using formData
-                const todo = todoItem(...data.values())
-                saveTodo(todo, 'project1');
+                const todo = todoItem(...data.values());
+
+                saveTodo(todo, selectedProject);
             
             overlay.remove();
-            refreshTodos('project1');
+            refreshTodos(selectedProject);
         });
     })
     } else {
