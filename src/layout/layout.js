@@ -1,47 +1,48 @@
-import './style.css';
-import { createForm } from '../DOMstuff/createTodoForm';
-import { createProjectTab } from '../DOMstuff/createProject';
-import { clearTodos, createProject } from '../controllers/localstorage';
+import "./style.css";
+import { createForm } from "../DOMstuff/createTodoForm";
+import { createProjectTab } from "../DOMstuff/createProject";
+import { clearTodos, createProject } from "../controllers/localstorage";
 
 function layout() {
-    const mainContainer = document.createElement('div');
-    mainContainer.classList = 'main';
-    const navBar = document.createElement('div');
-    navBar.classList = 'navbar';
+  const mainContainer = document.createElement("div");
+  mainContainer.classList = "main";
+  const navBar = document.createElement("div");
+  navBar.classList = "navbar";
 
-    const defaultProject = document.createElement('button');
-    defaultProject.classList = 'project-button';
-    defaultProject.textContent = 'Project 1';
+  const defaultProject = document.createElement("button");
+  defaultProject.classList = "project-button";
+  defaultProject.textContent = "Project 1";
 
-    const addProjectButton = document.createElement('button');
-    addProjectButton.classList = 'add-project-button';
-    addProjectButton.textContent = '+';
+  const addProjectButton = document.createElement("button");
+  addProjectButton.classList = "add-project-button";
+  addProjectButton.textContent = "+";
 
-    addProjectButton.addEventListener('click', createProjectTab);
+  addProjectButton.addEventListener("click", createProjectTab);
 
-    navBar.appendChild(defaultProject);
-    navBar.appendChild(addProjectButton);
+  navBar.appendChild(defaultProject);
+  navBar.appendChild(addProjectButton);
 
-    const addTodoButton = document.createElement('button');
-    addTodoButton.classList = 'add-todo-button';
-    addTodoButton.textContent = 'Click here to create a new to-do list item';
-    addTodoButton.addEventListener('click', createForm);
+  const addTodoButton = document.createElement("button");
+  addTodoButton.classList = "add-todo-button";
+  addTodoButton.textContent = "Click here to create a new to-do list item";
+  addTodoButton.addEventListener("click", createForm);
 
-    const clearAllTodos = document.createElement('button');
-    clearAllTodos.classList = 'clear-todos-button';
-    clearAllTodos.textContent = 'Clear todos';
-    clearAllTodos.addEventListener('click', clearTodos)
+  const clearAllTodos = document.createElement("button");
+  clearAllTodos.classList = "clear-todos-button";
+  clearAllTodos.textContent = "Clear todos";
+  clearAllTodos.addEventListener("click", function () {
+    clearTodos(true);
+  });
 
+  mainContainer.appendChild(navBar);
+  mainContainer.appendChild(addTodoButton);
+  mainContainer.appendChild(clearAllTodos);
 
-    mainContainer.appendChild(navBar);
-    mainContainer.appendChild(addTodoButton);
-    mainContainer.appendChild(clearAllTodos);
+  const todoItemContainer = document.createElement("div");
+  todoItemContainer.classList = "todo-items";
+  mainContainer.appendChild(todoItemContainer);
 
-    const todoItemContainer = document.createElement('div');
-    todoItemContainer.classList = 'todo-items';
-    mainContainer.appendChild(todoItemContainer);
-    
-    return mainContainer;
+  return mainContainer;
 }
 
-export {layout}
+export { layout };

@@ -76,13 +76,14 @@ const refreshTodos = (project, StayOnCurrentProject) => {
   }
 };
 
-const clearTodos = () => {
+const clearTodos = (StayOnCurrentProject) => {
   try {
     const currentProjectName = document.getElementById("Selected").textContent;
+    console.log(currentProjectName);
     let todoItems = JSON.parse(localStorage.getItem(`${currentProjectName}`));
     todoItems = [];
     localStorage.setItem(`${currentProjectName}`, JSON.stringify(todoItems));
-    refreshTodos();
+    refreshTodos(currentProjectName, StayOnCurrentProject);
     console.log(`Cleared all todos!`);
   } catch (err) {
     console.error(`Failed to clear todos. ${err}`);
