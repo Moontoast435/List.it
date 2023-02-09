@@ -1,26 +1,24 @@
-import {saveTodo, refreshTodos} from '../controllers/localstorage';
-import './style.css';
-import { todoItem } from '../todo/todo';
+import { saveTodo, refreshTodos } from "../controllers/localstorage";
+import "./style.css";
+import { todoItem } from "../todo/todo";
 
 const createForm = () => {
-    
-    const toggleFormOn = () => {
-        const overlay = document.getElementsByClassName('modal-overlay')[0];
-        overlay.classList.add('modal-visible');
-    }
+  const toggleFormOn = () => {
+    const overlay = document.getElementsByClassName("modal-overlay")[0];
+    overlay.classList.add("modal-visible");
+  };
 
-    const toggleFormOff = () => {
-        const overlay = document.getElementsByClassName('modal-overlay')[0];
-        overlay.classList.remove('modal-visible');
-    }
+  const toggleFormOff = () => {
+    const overlay = document.getElementsByClassName("modal-overlay")[0];
+    overlay.classList.remove("modal-visible");
+  };
 
-    if (!document.getElementsByClassName('modal-overlay')[0]) {
+  if (!document.getElementsByClassName("modal-overlay")[0]) {
+    const overlay = document.createElement("div");
+    const formContainer = document.createElement("div");
+    formContainer.classList = "form-container";
 
-        const overlay = document.createElement('div');
-        const formContainer = document.createElement('div');
-        formContainer.classList = 'form-container';
-
-        const form =   `<button id="close-form-button"> X </button>
+    const form = `<button id="close-form-button"> X </button>
                         <form id="create-todo-form">
                         <h2> Create your todo here!</h2>
                         <label for="todo-title"> Todo title: </label>
@@ -46,48 +44,45 @@ const createForm = () => {
                         <input type="submit" id="create-todo-submit" value="Create">
                         </form>
                         `;
-        formContainer.innerHTML = form;
-    
-        overlay.appendChild(formContainer);
+    formContainer.innerHTML = form;
 
-        overlay.classList = 'modal-overlay';
-        overlay.classList.add('modal-visible');
+    overlay.appendChild(formContainer);
 
-        document.body.appendChild(overlay);
+    overlay.classList = "modal-overlay";
+    overlay.classList.add("modal-visible");
 
-        const closeButton = document.getElementById('close-form-button');
-        closeButton.addEventListener('click', toggleFormOff);
+    document.body.appendChild(overlay);
 
-        const createdForm = document.getElementById('create-todo-form');
-        
-        createdForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    const closeButton = document.getElementById("close-form-button");
+    closeButton.addEventListener("click", toggleFormOff);
 
-            const formData = new FormData(createdForm);
-            
-            createdForm.addEventListener('formdata', (e) => {
-                console.log('formdata fired');
-              
-                // Get the form data from the event object
-                const data = e.formData;
-                
-                // Create todo using formData
-                const todo = todoItem(...data.values());
+    const createdForm = document.getElementById("create-todo-form");
 
-                let selectedProject = document.getElementById('Selected').textContent;
-                
-                saveTodo(todo, selectedProject);
-            
-            overlay.remove();
-            refreshTodos(selectedProject);
-        });
-    })
-    } else {
-        toggleFormOn();
-    }
-   
-}
+    createdForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
+      const formData = new FormData(createdForm);
 
+      createdForm.addEventListener("formdata", (e) => {
+        console.log("formdata fired");
+
+        // Get the form data from the event object
+        const data = e.formData;
+
+        // Create todo using formData
+        const todo = todoItem(...data.values());
+
+        let selectedProject = document.getElementById("Selected");
+
+        saveTodo(todo, selectedProject.textContent);
+
+        overlay.remove();
+        refreshTodos(selectedProject.textContent, true);
+      });
+    });
+  } else {
+    toggleFormOn();
+  }
+};
 
 export { createForm };

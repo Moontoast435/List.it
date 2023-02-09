@@ -31,6 +31,7 @@ const displayExistingProjects = () => {
   }
 
   const existingProjects = document.getElementsByClassName("project-button");
+
   existingProjects[0].id = "Selected";
 
   for (let i = 0; i < existingProjects.length; i++) {
