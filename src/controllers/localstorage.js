@@ -59,6 +59,7 @@ import { displayExistingProjects } from '../DOMstuff/createProject';
     const refreshTodos = (project) => {
         if (localStorage.length === 0) {
             createProject('Project 1');
+            
         } else {
            refreshProjects();
         }
