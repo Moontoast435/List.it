@@ -11,8 +11,8 @@ const createProject = (project) => {
   }
 };
 
-const refreshProjects = (createFormCheck) => {
-  if (createFormCheck === true) {
+const refreshProjects = (StayOnCurrentProject) => {
+  if (StayOnCurrentProject === true) {
     return;
   } else {
     let existingProjects = document.getElementsByClassName("project-button");
@@ -56,11 +56,11 @@ const getAllTodos = (project) => {
   }
 };
 
-const refreshTodos = (project, createFormCheck) => {
+const refreshTodos = (project, StayOnCurrentProject) => {
   if (localStorage.length === 0) {
     createProject("Project 1");
   } else {
-    refreshProjects(createFormCheck);
+    refreshProjects(StayOnCurrentProject);
   }
   const todoList = document.getElementsByClassName("todo-items")[0];
   todoList.textContent = "";
@@ -94,7 +94,7 @@ const deleteTodo = (project, id) => {
     let todoItems = JSON.parse(localStorage.getItem(`${project}`));
     todoItems.splice(id, 1);
     localStorage.setItem(`${project}`, JSON.stringify(todoItems));
-    refreshTodos();
+    refreshTodos(project, true);
     console.log(`Todo deleted`);
   } catch (err) {
     console.error(`Could not delete todo: ${err}`);
