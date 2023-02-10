@@ -4,6 +4,7 @@ const createTodo = (t, i, project) => {
    
     const todoList = document.getElementsByClassName('todo-items')[0];
     const todoItem = document.createElement('div');
+    todoItem.classList = 'todo-item';
     todoItem.id = i;
 
     const todoTitle = document.createElement('h3');
