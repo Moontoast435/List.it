@@ -1,13 +1,12 @@
 import "./style.css";
 import { createForm } from "../DOMstuff/createTodoForm";
+import { howToUse } from "../DOMstuff/howToUse";
 import { createProjectTab } from "../DOMstuff/createProject";
 import { clearTodos, createProject } from "../controllers/localstorage";
 
 function layout() {
-  const howToUse = document.createElement("p");
-  howToUse.textContent = `Simply click on the new todo button to create a new todo. You can also expand each todo by clicking on the "More" button, and delete specific todos. You can clear all the todos within a project by clicking "Clear todos". Finally, if you want to make separate todo lists, click on the + button to create a new project. You may only have up to five different projects. Thanks for trying out the app!`;
-  howToUse.classList = "how-to";
-  document.body.appendChild(howToUse);
+
+  document.body.appendChild(howToUse());
 
   const mainContainer = document.createElement("div");
   mainContainer.classList = "main";

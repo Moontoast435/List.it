@@ -12,6 +12,20 @@
     transition: 250ms opacity ease-in;
 }
 
+.modal-overlay-2 {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: 250ms opacity ease-in;
+}
+
 .modal-visible {
     opacity: 1;
     pointer-events: auto;
