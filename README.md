@@ -1,5 +1,7 @@
 # List.it
 
+View the app here : https://list-it-todo.netlify.app
+
 ## Installation & Usage
 
  * Clone the repo.
