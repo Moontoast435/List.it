@@ -14,6 +14,39 @@ const createTodo = (t, i, project) => {
     todoDescription.textContent = t.todo.description;
     todoItem.appendChild(todoDescription);
 
+    const dueDate = document.createElement('p');
+    dueDate.classList = 'hidden-details';
+    dueDate.textContent = `Due date : ${t.todo.dueDate}`;
+    todoItem.appendChild(dueDate);
+
+    const priority = document.createElement('p');
+    priority.classList = 'hidden-details';
+    priority.textContent = `Priority : ${t.todo.priority}`;
+
+    if (t.todo.priority === 'High') {
+        todoItem.style.backgroundColor = 'red';
+    }
+    todoItem.appendChild(priority);
+
+    const isCompleted = document.createElement('input');
+    isCompleted.classList = 'hidden-details';
+
+    isCompleted.id = i;
+    isCompleted.setAttribute('type', 'checkbox');
+
+    let checkedStatus = checkCompletedStatus(project, parseInt(i));
+
+    checkedStatus ? isCompleted.checked = true 
+    : isCompleted.checked = false;
+
+    isCompleted.addEventListener('click', function () {
+        !this.checked 
+        ? changeCompletedFalse(project ,parseInt(isCompleted.id)) 
+        : changeCompletedTrue(project ,parseInt(isCompleted.id));
+    }) ;
+
+    todoItem.appendChild(isCompleted);
+
     const deleteTodoBtn = document.createElement('button');
     deleteTodoBtn.id = i;
     deleteTodoBtn.textContent = `DELETE`;
@@ -58,33 +91,7 @@ const createTodo = (t, i, project) => {
 
     todoItem.appendChild(expandBtn);
 
-    const dueDate = document.createElement('p');
-    dueDate.classList = 'hidden-details';
-    dueDate.textContent = t.todo.dueDate;
-    todoItem.appendChild(dueDate);
 
-    const priority = document.createElement('p');
-    priority.classList = 'hidden-details';
-    priority.textContent = t.todo.priority;
-    todoItem.appendChild(priority);
-
-    const isCompleted = document.createElement('input');
-    isCompleted.classList = 'hidden-details';
-
-    isCompleted.id = i;
-    isCompleted.setAttribute('type', 'checkbox');
-
-    let checkedStatus = checkCompletedStatus(project, parseInt(i));
-
-    checkedStatus ? isCompleted.checked = true 
-    : isCompleted.checked = false;
-
-    isCompleted.addEventListener('click', function () {
-        !this.checked 
-        ? changeCompletedFalse(project ,parseInt(isCompleted.id)) 
-        : changeCompletedTrue(project ,parseInt(isCompleted.id));
-    }) ;
-    todoItem.appendChild(isCompleted);
     
     todoList.appendChild(todoItem);
    
