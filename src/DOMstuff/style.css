@@ -117,4 +117,5 @@ input[type="radio"] {
 
 #Selected {
     background-color: brown;
+    color: white;
 }
