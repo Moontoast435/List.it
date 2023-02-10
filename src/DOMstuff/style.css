@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@500&family=Nunito:wght@200&display=swap');
+
+:root {
+    --main-font : 'Assistant';
+}
+
 .modal-overlay {
     width: 100vw;
     height: 100vh;
@@ -13,8 +19,8 @@
 }
 
 .modal-overlay-2 {
-    width: 100vw;
-    height: 100vh;
+    width: 120vw;
+    height: 110vh;
     background-color: rgba(0,0,0,0.5);
     position: absolute;
     top: 0;
@@ -26,9 +32,25 @@
     transition: 250ms opacity ease-in;
 }
 
+.how-to-use-button {
+    margin: 2rem;
+    font-size: 20px;
+    border-radius : 5%;
+    font-family: var(--main-font);
+}
+
 .modal-visible {
     opacity: 1;
     pointer-events: auto;
+}
+
+.how-to-container { 
+    background-color: white;
+    height: 22rem;
+    width: 15rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-family: var(--main-font);
 }
 
 .form-container {

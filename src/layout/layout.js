@@ -28,7 +28,7 @@ function layout() {
 
   const addTodoButton = document.createElement("button");
   addTodoButton.classList = "add-todo-button";
-  addTodoButton.textContent = "Click here to create a new to-do list item";
+  addTodoButton.textContent = "Add todo";
   addTodoButton.addEventListener("click", createForm);
 
   const clearAllTodos = document.createElement("button");

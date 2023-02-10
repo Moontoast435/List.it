@@ -18,7 +18,7 @@ const createForm = () => {
     const formContainer = document.createElement("div");
     formContainer.classList = "form-container";
 
-    const form = `<button id="close-form-button"> X </button>
+    const form = `      <button id="close-form-button"> X </button>
                         <form id="create-todo-form">
                         <h2> Create your todo here!</h2>
                         <label for="todo-title"> Todo title: </label>
