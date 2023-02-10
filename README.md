@@ -1,3 +1,5 @@
 # List.it
 
-todo list app
+## Installation & Usage
+
+ * Clone the repo.
