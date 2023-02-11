@@ -2,6 +2,7 @@
 
 :root { 
   --main-font: "Assistant";
+  --font-color: rgb(214, 214, 214);
 }
 
 * {
@@ -18,10 +19,9 @@
   align-items: center;
   width: 80%;
   height: 80%;
-  background-color: rgb(63, 137, 197);
+  background-color: rgb(59, 59, 59);
   border: 2px solid rgb(255, 208, 0);
   border-radius: 5px;
-  box-shadow: 5px 5px  rgb(56, 56, 56);
   
 }
 
@@ -29,23 +29,32 @@
   display: flex;
   height: 10%;
   width: 100%;
-  background-color: rgb(30, 123, 199);
+  background-color: rgb(59, 59, 59);
   gap: 5px;
+  
 }
 
 .project-button {
   height: 100%;
-  width: 80%;
-  background-color: beige;
+  width: 5rem;
+  background-color: rgb(59, 59, 59);
   font-size: 12px;
+  border: 1px solid rgba(214, 214, 214, 0.486);
+  border-radius: 10px;
+  margin: 5px 2px;
+  color: var(--font-color);
 }
 
 .add-todo-button {
   height: 2em;
   width: 70%;
-  background-color: beige;
+  background-color: rgb(59, 59, 59);
   font-size: 12px;
   margin: 1em 0 0 1em;
+  border: 1px solid rgba(214, 214, 214, 0.486);
+  border-radius: 10px;
+  color: var(--font-color);
+
 }
 
 .todo-items {
@@ -55,14 +64,16 @@
   margin-top: 1em;
   overflow-x: hidden;
   overflow-y: scroll;
+  color: var(--font-color);
 }
 
 .clear-todos-button {
   height: 2em;
   width: 70%;
-  background-color: beige;
+  background-color: rgb(59, 59, 59);
   font-size: 12px;
   margin: 1em 0 0 1em;
+  color: var(--font-color);
 }
 /* scrollbar stuff */
 /* width */
