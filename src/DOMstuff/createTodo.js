@@ -29,11 +29,19 @@ const createTodo = (t, i, project) => {
     }
     todoItem.appendChild(priority);
 
+    const completedStatusContainer = document.createElement('div');
+    completedStatusContainer.classList = 'completed';
+
     const isCompleted = document.createElement('input');
     isCompleted.classList = 'hidden-details';
 
     isCompleted.id = i;
     isCompleted.setAttribute('type', 'checkbox');
+
+    const completedStatusLabel = document.createElement('label');
+    completedStatusLabel.classList = 'hidden-details';
+    completedStatusLabel.setAttribute('for', i);
+    completedStatusLabel.textContent = 'Completed';
 
     let checkedStatus = checkCompletedStatus(project, parseInt(i));
 
@@ -46,7 +54,8 @@ const createTodo = (t, i, project) => {
         : changeCompletedTrue(project ,parseInt(isCompleted.id));
     }) ;
 
-    todoItem.appendChild(isCompleted);
+    completedStatusContainer.append(completedStatusLabel, isCompleted)
+    todoItem.appendChild(completedStatusContainer);
 
     const deleteTodoBtn = document.createElement('button');
     deleteTodoBtn.id = i;
