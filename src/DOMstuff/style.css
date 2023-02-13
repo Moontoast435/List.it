@@ -34,9 +34,14 @@
 
 .how-to-use-button {
     margin: 2rem;
-    font-size: 20px;
-    border-radius : 5%;
+    font-size: 16px;
+    color: rgb(185, 185, 185);
+    border-radius : 10px;
     font-family: var(--main-font);
+    opacity: 0.7;
+    border: 1px solid rgba(214, 214, 214, 0.486);
+    padding: 15px;
+    background-color: rgb(59, 59, 59);
 }
 
 .modal-visible {
@@ -58,7 +63,7 @@
     flex-direction: column;
     margin: 10px;
     padding: 5px;
-    border-radius: 3%;
+    border-radius: 10px;
     background-color: rgb(109, 109, 109);
 }
 .form-container {
