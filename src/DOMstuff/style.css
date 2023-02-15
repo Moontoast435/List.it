@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@500&family=Nunito:wght@200&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 :root {
     --main-font : 'Assistant';
 }
@@ -81,6 +81,8 @@
     line-height: 1.5rem;
     border-top: 1px solid gray;
     padding: 1rem 0;
+    font-family: 'Quicksand', sans-serif;
+
 }
 
 textarea {

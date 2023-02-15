@@ -5,9 +5,9 @@
   --font-color: rgb(214, 214, 214);
 }
 
-* {
+/* * {
   font-family: var(--main-font)
-}
+} */
 
 .how-to {
   font-size: 14px;
