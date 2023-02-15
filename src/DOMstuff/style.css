@@ -68,11 +68,13 @@
 }
 .form-container {
     background-color: white;
-    height: 30rem;
+    height: 32rem;
     width: 15rem;
-    padding: 1.5rem;
+    padding: 0 1rem;
     border-radius: 10px;
-
+    background-color: rgb(109, 109, 109);
+    color: white;
+    font-weight: 1000;
 }
 
 .form-container form {
@@ -80,33 +82,42 @@
     flex-direction: column;
     line-height: 1.5rem;
     border-top: 1px solid gray;
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     font-family: 'Quicksand', sans-serif;
 
 }
 
 textarea {
     resize: none;
+    border-radius: 10px;
 }
 
 .radio-labels {
-    margin: 0 0.8em 0 0.8em;
+    margin: 0;
     padding: 0;
-    width: 15em;
+    width: 18em;
 }
 
 .radio-label {
-    margin: 0 1em 0 1em;
+    margin: 0 1em;
 }
 
 .radio-buttons {
-    margin: 0 0.8em 0 0.8em;
+    margin: 0;
     width: 20em;
     
 }
 
+label {
+    margin-bottom : 0.2em;
+}
+input {
+    border-radius: 10px;
+    margin: 0.5em 0;
+}
+
 input[type="radio"] {
-    margin:  1em 2.2em;
+    margin:  1em 2.3em;
 }
 
 #create-todo-submit {
