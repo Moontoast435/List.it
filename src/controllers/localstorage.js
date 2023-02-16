@@ -59,6 +59,7 @@ const getAllTodos = (project) => {
 const refreshTodos = (project, StayOnCurrentProject) => {
   if (localStorage.length === 0) {
     createProject("Project 1");
+    refreshProjects(StayOnCurrentProject);
   } else {
     refreshProjects(StayOnCurrentProject);
   }

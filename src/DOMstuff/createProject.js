@@ -5,8 +5,6 @@ import {
 } from "../controllers/localstorage";
 
 const createProjectTab = () => {
-  const existingProjects = document.getElementsByClassName("project-button");
-
   const overlay = document.getElementsByClassName('modal-overlay-3')[0];
   overlay.classList.add('modal-visible');
 
@@ -14,6 +12,7 @@ const createProjectTab = () => {
   const projectNameForm = document.createElement('input');
   projectNameForm.setAttribute('type', 'text');
   const projectNameSubmit = document.createElement('button');
+  projectNameSubmit.textContent = 'Create Project';
   
   const closeBtn = document.createElement('button');
   closeBtn.classList = "close-project-name-button";
@@ -37,8 +36,7 @@ const createProjectTab = () => {
   overlay.appendChild(projectNameFormContainer);
 
   document.body.appendChild(overlay);
-  // ;
-  // ;
+  
 };
 
 const displayExistingProjects = () => {
