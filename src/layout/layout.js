@@ -8,6 +8,10 @@ function layout() {
 
   document.body.appendChild(howToUse());
 
+  const overlayProjectName = document.createElement('div')
+  overlayProjectName.classList = 'modal-overlay-3';
+  document.body.appendChild(overlayProjectName);
+  
   const mainContainer = document.createElement("div");
   mainContainer.classList = "main";
   const navBar = document.createElement("div");

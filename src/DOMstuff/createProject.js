@@ -6,19 +6,48 @@ import {
 
 const createProjectTab = () => {
   const existingProjects = document.getElementsByClassName("project-button");
-  const projectName = `Project ${existingProjects.length + 1}`;
 
-  createProject(projectName);
-  refreshTodos(projectName);
+  const overlay = document.getElementsByClassName('modal-overlay-3')[0];
+  overlay.classList.add('modal-visible');
+
+  const projectNameFormContainer = document.createElement('div');
+  const projectNameForm = document.createElement('input');
+  projectNameForm.setAttribute('type', 'text');
+  const projectNameSubmit = document.createElement('button');
+  
+  const closeBtn = document.createElement('button');
+  closeBtn.classList = "close-project-name-button";
+  closeBtn.textContent = 'X';
+  closeBtn.addEventListener('click', function () {
+      overlay.classList.remove('modal-visible');
+      overlay.textContent = '';
+  })
+
+  projectNameFormContainer.append(projectNameForm, projectNameSubmit,closeBtn);
+  let projectName;
+
+  projectNameSubmit.onclick = function() {
+    projectName = projectNameForm.value;
+    createProject(projectName);
+    refreshTodos();
+    overlay.classList.remove('modal-visible');
+    overlay.textContent = '';
+  }
+
+  overlay.appendChild(projectNameFormContainer);
+
+  document.body.appendChild(overlay);
+  // ;
+  // ;
 };
 
 const displayExistingProjects = () => {
   const data = localStorage;
-
-  for (let i = 0; i < data.length; i++) {
+  for (let key of Object.keys(data)) {
     const projectBtn = document.createElement("button");
     projectBtn.classList = "project-button";
-    projectBtn.textContent = `Project ${i + 1}`;
+    projectBtn.textContent = key;
+    
 
     const navBar = document.getElementsByClassName("navbar")[0];
     const addBtn = document.getElementsByClassName("add-project-button")[0];

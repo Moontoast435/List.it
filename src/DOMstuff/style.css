@@ -32,6 +32,20 @@
     transition: 250ms opacity ease-in;
 }
 
+.modal-overlay-3 {
+    width: 120vw;
+    height: 110vh;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: 250ms opacity ease-in;
+}
+
 .how-to-use-button {
     margin: 2rem;
     font-size: 16px;
