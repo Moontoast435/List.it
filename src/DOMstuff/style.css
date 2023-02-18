@@ -157,3 +157,17 @@ input[type="radio"] {
     background-color: brown;
     color: white;
 }
+
+.new-project-form {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+}
+
+.new-project-form button {
+    width: 5rem;
+    margin: 1rem;
+    border-radius: 10px;
+}

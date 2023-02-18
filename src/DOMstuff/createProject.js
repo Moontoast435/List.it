@@ -9,6 +9,7 @@ const createProjectTab = () => {
   overlay.classList.add('modal-visible');
 
   const projectNameFormContainer = document.createElement('div');
+  projectNameFormContainer.classList = "new-project-form";
   const projectNameForm = document.createElement('input');
   projectNameForm.setAttribute('type', 'text');
   const projectNameSubmit = document.createElement('button');
