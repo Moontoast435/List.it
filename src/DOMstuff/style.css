@@ -163,11 +163,14 @@ input[type="radio"] {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: 40px;
+    padding: 20px;
 }
 
 .new-project-form button {
-    width: 5rem;
     margin: 1rem;
     border-radius: 10px;
+}
+
+.close-project-name-button {
+    width: 4rem;
 }

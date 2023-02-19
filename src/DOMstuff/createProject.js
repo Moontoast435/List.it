@@ -17,13 +17,13 @@ const createProjectTab = () => {
   
   const closeBtn = document.createElement('button');
   closeBtn.classList = "close-project-name-button";
-  closeBtn.textContent = 'X';
+  closeBtn.textContent = 'Cancel';
   closeBtn.addEventListener('click', function () {
       overlay.classList.remove('modal-visible');
       overlay.textContent = '';
   })
 
-  projectNameFormContainer.append(projectNameForm, projectNameSubmit,closeBtn);
+  projectNameFormContainer.append(closeBtn, projectNameForm, projectNameSubmit);
   let projectName;
 
   projectNameSubmit.onclick = function() {
