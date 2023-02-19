@@ -12,6 +12,7 @@ const createProjectTab = () => {
   projectNameFormContainer.classList = "new-project-form";
   const projectNameForm = document.createElement('input');
   projectNameForm.setAttribute('type', 'text');
+  projectNameForm.setAttribute('maxlength', '20');
   const projectNameSubmit = document.createElement('button');
   projectNameSubmit.textContent = 'Create Project';
   
