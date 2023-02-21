@@ -17,4 +17,4 @@ The app was principally designed for mobile use, but I will continue to make cha
 ## Future features
 
 [x] Create projects with custom names
-* Update the styling some more on both mobile and desktop versions. On Desktop - adjust the sizing of certain elements
+[ ] Update the styling some more on both mobile and desktop versions. On Desktop - adjust the sizing of certain elements
