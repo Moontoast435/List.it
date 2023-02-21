@@ -16,5 +16,5 @@ The app was principally designed for mobile use, but I will continue to make cha
 
 ## Future features
 
-* I would like to add the ability to rename the projects and have an infinite amount of them.
-* Update the styling some more on both mobile and desktop versions
+[x] Create projects with custom names
+* Update the styling some more on both mobile and desktop versions. On Desktop - adjust the sizing of certain elements
