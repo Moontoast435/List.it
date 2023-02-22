@@ -107,3 +107,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000;
 }
+
+@media only screen and (min-width: 1400px) {
+  .navbar {
+    height: 30%;
+  }
+
+  .project-button {
+    height: 10rem;
+    width: 15rem;
+    background-color: rgb(59, 59, 59);
+    font-size: 12px;
+    border: 1px solid rgba(214, 214, 214, 0.486);
+    border-radius: 10px;
+    margin: 5px 2px;
+    color: var(--font-color);
+  }
+}
