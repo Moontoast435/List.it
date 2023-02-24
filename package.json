@@ -4,7 +4,7 @@
   "description": "todo list app",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --watchAll",
     "start": "webpack serve --open",
     "build": "webpack"
   },
