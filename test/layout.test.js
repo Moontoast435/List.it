@@ -33,3 +33,10 @@ test('the navbar is rendered', () => {
     let navbar = document.getElementsByClassName('navbar')[0];
     expect(navbar).toBeTruthy();
 })
+
+test('The add todos button is rendered', () => {
+    let addTodosBtn = document.getElementsByClassName('add-todo-button')[0];
+    expect(addTodosBtn).toBeTruthy();
+    expect(addTodosBtn.textContent).toBe('Add todo');
+
+})
