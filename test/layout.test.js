@@ -40,3 +40,9 @@ test('The add todos button is rendered', () => {
     expect(addTodosBtn.textContent).toBe('Add todo');
 
 })
+
+test('The clear todos button is rendered', () => {
+    let clearTodosBtn = document.getElementsByClassName('clear-todos-button')[0];
+    expect(clearTodosBtn).toBeTruthy();
+    expect(clearTodosBtn.textContent).toBe('Clear todos');
+})
